@@ -13,7 +13,7 @@ spec:
       releaseName: vault
       valueFiles:
         - $values/vault/vault-values.yaml
-  - repoURL: 'https://github.com/NaimAssoumani/initial-manifest'
+  - repoURL: 'https://github.com/NaimAssoumani/initial-Manifest'
     targetRevision: dev
     ref: values
   destination:
