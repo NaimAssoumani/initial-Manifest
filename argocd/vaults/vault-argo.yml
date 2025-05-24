@@ -6,13 +6,16 @@ metadata:
 spec:
   project: default
   source:
-    chart: vault
+  - chart: vault
     repoURL: https://helm.releases.hashicorp.com
     targetRevision: 0.30.0
     helm:
       releaseName: vault
       valueFiles:
-        - vault-values.yaml
+        - $values/vault/vault-values.yaml
+  - repoURL: 'https://github.com/NaimAssoumani/initial-manifest'
+    targetRevision: dev
+    ref: values
   destination:
     server: "https://kubernetes.default.svc"
     namespace: hashicorp
