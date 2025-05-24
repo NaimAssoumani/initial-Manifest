@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kustomize-dev
+spec:
+  project: default
+  source:
+    path: overlays/dev
+    repoURL: 'https://github.com/NaimAssoumani/Kustomize-nginx'
+    targetRevision: HEAD
+  destination:
+    namespace: default
+    server: 'https://kubernetes.default.svc'

@@ -1,0 +1,26 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: confirmation-ingress
+  namespace: qual
+  annotations:
+    # add an annotation indicating the issuer to use.
+    cert-manager.io/issuer: letsencrypt-staging-qual
+spec:
+  ingressClassName: haproxy
+  rules:
+  - host: "blog.assouman.fr"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: qual-my-service-nginx
+            port:
+              number: 80
+  tls: # < placing a host in the TLS config will determine what ends up in the cert's subjectAltNames
+  - hosts:
+    - blog.assouman.fr
+    secretName: qual-cert-secret

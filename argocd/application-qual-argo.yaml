@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kustomize-qual
+  namespace: argocd
+spec:
+  project: default
+  source:
+    path: overlays/qual
+    repoURL: 'https://github.com/NaimAssoumani/Kustomize-nginx'
+    targetRevision: HEAD
+  destination:
+    namespace: default
+    server: 'https://kubernetes.default.svc'
