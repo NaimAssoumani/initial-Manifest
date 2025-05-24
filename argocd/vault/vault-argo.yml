@@ -12,7 +12,7 @@ spec:
     helm:
       releaseName: vault
       valueFiles:
-        - $values/vault/vault-values.yaml
+        - $values/argocd/vault/vault-values.yaml
   - repoURL: 'https://github.com/NaimAssoumani/initial-Manifest.git'
     targetRevision: HEAD
     ref: values
